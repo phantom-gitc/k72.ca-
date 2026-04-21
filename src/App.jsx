@@ -6,7 +6,6 @@ import Agence from "./pages/Agence"
 const App = () => {
   return (
     <div>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
