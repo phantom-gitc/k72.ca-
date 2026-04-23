@@ -42,6 +42,12 @@ const Agence = () => {
         end: "bottom -100%",
         scrub: true,
         pin: true,
+        pinSpacing: true,
+        pinReparent: true,
+        // pinType:'transform',
+        invalidateOnRefresh: true,
+
+
         onUpdate: (self) => {
           let index =
             self.progress < 1
@@ -62,22 +68,22 @@ const Agence = () => {
     imagesRef.current.forEach((img, i) => {
       if (!img) return;
 
-      gsap.to(img, {
-        opacity: i === activeIndex ? 1 : 0,
-        duration: 0.4,
-        ease: "power2.out",
-      });
+gsap.to(img, {
+  autoAlpha: i === activeIndex ? 1 : 0,
+  duration: 0.5,
+  ease: "power2.out",
+});
     });
   }, [activeIndex]);
 
   return (
     <div>
-      <div className="section1">
+      <div className="section1 relative py-1">
         {/* Image Container */}
-        <div
-          ref={imageDivRef}
-          className="w-58 h-75 absolute top-[22.6vh] left-[30vw] rounded-3xl overflow-hidden"
-        >
+<div
+  ref={imageDivRef}
+  className="w-58 h-75 absolute top-[22.6vh] left-[30vw] rounded-3xl overflow-hidden bg-black z-[-1]"
+>
           {imageArray.map((src, i) => (
             <img
               key={i}
@@ -91,7 +97,7 @@ const Agence = () => {
         </div>
 
         {/* Text Section */}
-        <div className="relative font-[K72-Font-2]">
+        <div className="relative font-[K72-Font-2] z-10">
           <div className="text-black mt-[57vh]">
             <h1 className="text-[20vw] uppercase text-center leading-[16.9vw]">
               Soixan7t <br /> Twelve
