@@ -47,7 +47,6 @@ const Agence = () => {
         // pinType:'transform',
         invalidateOnRefresh: true,
 
-
         onUpdate: (self) => {
           let index =
             self.progress < 1
@@ -68,11 +67,11 @@ const Agence = () => {
     imagesRef.current.forEach((img, i) => {
       if (!img) return;
 
-gsap.to(img, {
-  autoAlpha: i === activeIndex ? 1 : 0,
-  duration: 0.5,
-  ease: "power2.out",
-});
+      gsap.to(img, {
+        autoAlpha: i === activeIndex ? 1 : 0,
+        duration: 0.5,
+        ease: "power2.out",
+      });
     });
   }, [activeIndex]);
 
@@ -80,10 +79,10 @@ gsap.to(img, {
     <div>
       <div className="section1 relative py-1">
         {/* Image Container */}
-<div
-  ref={imageDivRef}
-  className="w-58 h-75 absolute top-[22.6vh] left-[30vw] rounded-3xl overflow-hidden bg-black z-[-1]"
->
+        <div
+          ref={imageDivRef}
+          className="w-58 h-75 absolute top-[22.6vh] left-[30vw] rounded-3xl overflow-hidden bg-black z-[-1]"
+        >
           {imageArray.map((src, i) => (
             <img
               key={i}
@@ -107,19 +106,59 @@ gsap.to(img, {
           <div className="text-black pl-[37%] mt-10">
             <p className="text-6xl">
               &emsp;&emsp;&emsp;&emsp; Our curiosity fuels our creativity. We
-              remain humble and say no to big egos, even yours. A brand is alive.
-              She has values, a personality, a history. If we forget that, we can
-              make good numbers in the short term, but we kill it in the long
-              term. This is why we are committed to giving perspective, to
-              building influential brands.
+              remain humble and say no to big egos, even yours. A brand is
+              alive. She has values, a personality, a history. If we forget
+              that, we can make good numbers in the short term, but we kill it
+              in the long term. This is why we are committed to giving
+              perspective, to building influential brands.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="section2 h-screen"></div>
-    </div>
+      <div className=" section2 h-screen w-full font-[K72-Font-2] text-black">
+        <section className=" px-8 py-16 md:px-16 md:py-24">
+          {/* Row 1 — Expertise */}
+          <div className="  grid grid-cols-3 mb-20 ml-24 mt-30">
+            <p className="text-[1.3vw] font-bold">Expertise</p>
+            <div className="col-start-2 ">
+              {[
+                "Strategy",
+                "Advertisement",
+                "Branding",
+                "Design",
+                "Content",
+              ].map((item) => (
+                <p key={item} className="text-[1.3vw] leading-tight">
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
 
+          {/* Row 2 — Three columns */}
+          <div className="  grid grid-cols-3 gap-12  mt-45">
+            <p className="text-[1.25vw] leading-tight ml-24 text-justify">
+              <span className="font-medium">Our projects_</span> are born in
+              humility, grow in curiosity and live thanks to creativity in all
+              its forms.
+            </p>
+            <p className="text-[1.25vw] leading-tight text-justify ml-9">
+              <span className="font-medium">Our creation_</span> is bubbling in
+              an environment where talent wants to explode. Where you feel free
+              to be the best version of yourself.
+            </p>
+            <p className="text-[1.25vw] leading-tight text-justify">
+              <span className="font-medium">Our culture_</span> is openness to
+              others. Point. The entire crew helps build an agency that we are
+              proud of.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <div className="section3 h-screen w-full bg-red-400"></div>
+    </div>
   );
 };
 
